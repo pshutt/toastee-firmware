@@ -49,7 +49,7 @@ def start_toast():
     r = requests.post(url, data=json.dumps(payload), headers=headers)
     url2 = 'https://secure-garden-32931.herokuapp.com/posts'
     payload2 = {'authenticity_token':'FD3BqJRnTbXjjCaneULwd1y1H+7cM1KYpghz+8eV4gyPzTfuOoMfMauN+TVrIeok80vbTfVt9+JUYmlJ097M9g==','post': \
-    {'content': 'test from python new  ' + blob + ' 37.JPG'}}
+    {'content': 'Time for #toast https://toastee.s3.amazonaws.com/uploads/post/attachment/39/image.jpg'}}
 
     r2 = requests.post(url2, data=json.dumps(payload2),cookies=r.cookies, headers=headers)
 
@@ -61,12 +61,49 @@ def start_toast():
 def start_toast():
     ser = serial.Serial('/dev/ttyACM0')
     ser.write('4')
+
+    sleep(240)
+    
+
+
+
+    message = client.messages.create(to="+15173958962", from_="+12568040990", body="Your toast is done!")
+    file_name = os.getcwd()+'/image.jpg'
+    blob = json.dumps(file_name.encode("base64"))
+    #this is the heroku sign-in, it will get a session opened with a cookie
+    url = 'http://secure-garden-32931.herokuapp.com/users/sign_in'
+    payload ={'user': {'email': 'petershutt00@gmail.com', 'password':'hackerfellows'}}
+    headers = {'content-type': 'application/json'}
+    r = requests.post(url, data=json.dumps(payload), headers=headers)
+    url2 = 'https://secure-garden-32931.herokuapp.com/posts'
+    payload2 = {'authenticity_token':'FD3BqJRnTbXjjCaneULwd1y1H+7cM1KYpghz+8eV4gyPzTfuOoMfMauN+TVrIeok80vbTfVt9+JUYmlJ097M9g==','post': \
+    {'content': 'Time for #toast https://toastee.s3.amazonaws.com/uploads/post/attachment/39/image.jpg'}}
+
+    r2 = requests.post(url2, data=json.dumps(payload2),cookies=r.cookies, headers=headers)
     return statement('Making medium toast!')
 
 @ask.intent('start_dark_toast')
 def start_toast():
     ser = serial.Serial('/dev/ttyACM0')
     ser.write('6')
+
+
+    sleep(360)
+    
+
+    message = client.messages.create(to="+15173958962", from_="+12568040990", body="Your toast is done!")
+    file_name = os.getcwd()+'/image.jpg'
+    blob = json.dumps(file_name.encode("base64"))
+    #this is the heroku sign-in, it will get a session opened with a cookie
+    url = 'http://secure-garden-32931.herokuapp.com/users/sign_in'
+    payload ={'user': {'email': 'petershutt00@gmail.com', 'password':'hackerfellows'}}
+    headers = {'content-type': 'application/json'}
+    r = requests.post(url, data=json.dumps(payload), headers=headers)
+    url2 = 'https://secure-garden-32931.herokuapp.com/posts'
+    payload2 = {'authenticity_token':'FD3BqJRnTbXjjCaneULwd1y1H+7cM1KYpghz+8eV4gyPzTfuOoMfMauN+TVrIeok80vbTfVt9+JUYmlJ097M9g==','post': \
+    {'content': 'Time for #toast https://toastee.s3.amazonaws.com/uploads/post/attachment/39/image.jpg'}}
+
+    r2 = requests.post(url2, data=json.dumps(payload2),cookies=r.cookies, headers=headers)
     return statement('Making dark toast!')
 
 
