@@ -75,7 +75,7 @@ if __name__ == '__main__':
     app.run(debug=True)
 
 
-def post:
+def post():
     message = client.messages.create(to="+15173958962", from_="+12568040990", body="Your toast is done!")
     file_name = os.getcwd()+'/image.jpg'
     blob = json.dumps(file_name.encode("base64"))
