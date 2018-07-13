@@ -24,7 +24,7 @@ def start_skill():
         ser = serial.Serial('/dev/ttyACM0')
     except:
         pass
-    welcome_message = 'Get ready for some GREAT toast! Would you like your toast; light, medium or dark?'
+    welcome_message = 'Get ready for some GREAT toast!Do you want frosted or unfrosted toast? HAHA just kidding, I can only make frosted toast. Would you like your toast; light, medium or dark?'
     return question(welcome_message)
 
 
