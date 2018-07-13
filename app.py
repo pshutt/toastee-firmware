@@ -35,7 +35,7 @@ def start_toast():
     ser = serial.Serial('/dev/ttyACM0')
     ser.write('2')
     sleep(120)
-    post
+    this.post()
     return statement('Making light toast!')
 
 
